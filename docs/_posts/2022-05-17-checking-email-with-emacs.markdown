@@ -28,9 +28,9 @@ Also as context, I'm doing this on macOS and I use [macports](https://www.macpor
 
 I installed these ports:
 
-    sudo port install notmuch offlineimap gpg curl
+    sudo port install notmuch offlineimap gnupg2 curl
 
-`gpg` is used to read/write from `~/.authinfo.gpg`.
+`gnupg2` is used to read/write from `~/.authinfo.gpg`.
 
 `curl` is needed to ensure the CA certificate bundle has been downloaded, which is referenced in `.offlineimaprc` below.
 
@@ -40,12 +40,12 @@ I installed these ports:
 
 offlineimap supports OAuth authentication (instead of username + password authentication).
 
-Please see https://github.com/UvA-FNWI/M365-IMAP , which is a great guide. Briefly, to get OAuth credentials for Office365, you need to use [the Azure portal (portal.azure.com)](https://portal.azure.com). You need to use Azure active directory, go to "App registrations," and then create a new application per this guide.
+Please see <https://github.com/UvA-FNWI/M365-IMAP>, which is a great guide. Briefly, to get OAuth credentials for Office365, you need to use [the Azure portal (portal.azure.com)](https://portal.azure.com). You need to use Azure active directory, go to "App registrations," and then create a new application per this guide.
 
 However, the `oauth2_request_url` in the guide, `https://login.microsoftonline.com/common/oauth2/v2.0/token`, is not necessarily correct. You may need to use a more specific endpoint than `common`, something along the lines of 
 `https://login.microsoftonline.com/FIXME/oauth2/v2.0/token`. This is called the "tenant ID." You can find it from going to Azure Active Directory, navigating up the breadcrumbs to your organization, and then clicking "Overview."
 
-Once you have your OAuth2 information:
+Once you have your OAuth2 information, when following the below steps:
 
 - populate `oauth2_request_url` in `.offlineimaprc`
 - populate `oauth2_client_id` in `.offlineimaprc`
@@ -152,7 +152,7 @@ You'll need to make the script executable:
 
     chmod +x ~/bin/maildir-notmuch-sync
 
-I recommend you edit this script. Here's a diff of what I changed:
+I recommend you edit this script. In my case, my Office365 archive folder is called `Archive`. Here's a diff of what I changed:
 
 {% highlight diff %}
 < 
