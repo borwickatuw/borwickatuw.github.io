@@ -43,7 +43,7 @@ offlineimap supports OAuth authentication (instead of username + password authen
 Please see <https://github.com/UvA-FNWI/M365-IMAP>, which is a great guide. Briefly, to get OAuth credentials for Office365, you need to use [the Azure portal (portal.azure.com)](https://portal.azure.com). You need to use Azure active directory, go to "App registrations," and then create a new application per this guide.
 
 However, the `oauth2_request_url` in the guide, `https://login.microsoftonline.com/common/oauth2/v2.0/token`, is not necessarily correct. You may need to use a more specific endpoint than `common`, something along the lines of 
-`https://login.microsoftonline.com/FIXME/oauth2/v2.0/token`. This is called the "tenant ID." You can find it from going to Azure Active Directory, navigating up the breadcrumbs to your organization, and then clicking "Overview."
+`https://login.microsoftonline.com/FIXME/oauth2/v2.0/token`. You will need to replace `FIXME` with what is called the "tenant ID." You can find the tenant ID from going to Azure Active Directory, navigating up the breadcrumbs to your organization, and then clicking "Overview."
 
 Once you have your OAuth2 information, when following the below steps:
 
@@ -146,7 +146,8 @@ The outlook.office365.com credentials are used by offlineimap. The smtp.uw.edu c
 
 # ~/bin/maildir-notmuch-sync
 
-Create a directory `~/bin` if it doesn't already exist and put https://raw.githubusercontent.com/altercation/es-bin-arch/master/maildir-notmuch-sync in it. This script will move files in your `~/Mail` folders as their labels change in notmuch. This enables notmuch tags to move email in your Office365 mailbox.
+Create a directory `~/bin` if it doesn't already exist and put <https://raw.githubusercontent.com/altercation/es-bin-arch/master/maildir-notmuch-sync>
+in it. This script will move files in your `~/Mail` folders as their labels change in notmuch. This enables notmuch tags to move email in your Office365 mailbox.
 
 You'll need to make the script executable:
 
