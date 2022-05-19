@@ -1,0 +1,4 @@
+Sitemap: https://borwickatuw.github.io/sitemap.xml
+
+User-agent: *
+Disallow:
