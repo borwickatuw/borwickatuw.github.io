@@ -9,5 +9,4 @@ layout: default
 # Posts
 
   {% for post in site.posts %}
-* <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date|date:"%Y-%m-%d" }}
-  {% endfor %}
+  * <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date|date:"%Y-%m-%d" }}{% endfor %}
