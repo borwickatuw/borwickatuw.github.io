@@ -10,5 +10,4 @@ I do this enough that I built an elisp function to find recently-modified docume
     (browse-url (concat "https://drive.google.com/drive/search?q=type:document%20after:"
 			(format-time-string "%Y-%m-%d"
 					    (time-subtract (current-time) (days-to-time 14)))))
-    #+end_src
 {% endhighlight %}

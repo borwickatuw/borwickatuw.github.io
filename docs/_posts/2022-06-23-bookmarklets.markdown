@@ -11,9 +11,11 @@ For example, I use:
 
 I recently found <https://caiorss.github.io/bookmarklet-maker/>, which will convert JavaScript into its URL encoded version. For example, the code
 
+{% highlight javascript %}
     var answer = prompt('ID?');
 	window.location.href = "http://example.com/path/to/id/" + answer;
-	
+{% endhighlight %}
+
 gets turned into
 
     javascript:(function()%7Bvar answer %3D prompt('ID%3F')%3B   window.location.href %3D %22http%3A%2F%2Fexample.com%2Fpath%2Fto%2Fid%2F%253D%22 %2B answer%3B%7D)()%3B
