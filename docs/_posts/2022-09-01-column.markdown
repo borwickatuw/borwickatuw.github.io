@@ -1,0 +1,28 @@
+---
+layout: default
+title: "Using column and expand"
+---
+I just learned about the UNIX `column` command, which takes text output and puts it into columns!
+
+At least in my implementation, it uses tabs for output, so I also learned about the `expand` command that converts tabs into spaces!
+
+This allows me to run
+
+    for i in 20220[89]*; do echo -n "${i//-*}: "; find $i -type f | wc -l; done | column | expand
+
+in a directory that contains subdirectories like
+
+    20220801-12345
+    20220802-12345
+	...
+
+and print out the date from the directory name plus the count of the number of files:
+
+    20220801: xxx   20220808: xxx   20220815: xxx
+    20220802: xxx   20220809: xxx   20220816: xxx
+    20220803: xxx   20220810: xxx   20220817: xxx
+    20220804: xxx   20220811: xxx   20220818: xxx
+    20220805: xxx   20220812: xxx   20220819: xxx
+    20220806: xxx   20220813: xxx   20220820: xxx
+    20220807: xxx   20220814: xxx   20220821: xxx
+
