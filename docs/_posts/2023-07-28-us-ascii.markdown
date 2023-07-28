@@ -5,6 +5,7 @@ title: "Python complaint about us-ascii"
 I was receiving this complaint from Python: `LookupError: unknown encoding: us-ascii`.
 
 I addressed it using [this Stack Overflow answer](https://stackoverflow.com/a/1064308/14068848) from Alex Martelli:
+
     # https://stackoverflow.com/a/1064308/14068848
     def encalias(oldname, newname):
       old = codecs.lookup(oldname)
