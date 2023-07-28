@@ -1,0 +1,25 @@
+---
+layout: default
+title: "Python complaint about us-ascii"
+---
+I was receiving this complaint from Python: `LookupError: unknown encoding: us-ascii`.
+
+I addressed it using [this Stack Overflow answer](https://stackoverflow.com/a/1064308/14068848) from Alex Martelli:
+    # https://stackoverflow.com/a/1064308/14068848
+    def encalias(oldname, newname):
+      old = codecs.lookup(oldname)
+      new = codecs.CodecInfo(old.encode, old.decode, 
+                             streamreader=old.streamreader,
+                             streamwriter=old.streamwriter,
+                             incrementalencoder=old.incrementalencoder,
+                             incrementaldecoder=old.incrementaldecoder,
+                             name=newname)
+      def searcher(aname):
+        if aname == newname:
+          return new
+        else:
+          return None
+      codecs.register(searcher)
+    encalias('ascii', 'us-ascii')
+
+This creates an encoding `us-ascii` that is the same as `ascii`.
