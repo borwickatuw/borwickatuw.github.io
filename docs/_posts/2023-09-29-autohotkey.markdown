@@ -32,6 +32,22 @@ This takes the active cell from whatever Excel window is open if you click on th
     Excel := ComObjActive("Excel.Application")
 	MyVar := Excel.ActiveCell.Value
 
+# Moving to the next cell #
+
+The easiest way to move Excel to another cell is to use arrow keys:
+
+    WinActivate,, Name Of Excel File
+	Send {Down}
+
+This works great if you want the user to be able to select the column and then the script just moves down that column.
+
+However, if you need a certain column, you might consider doing something like:
+
+    Send {Left 25}
+	Send {Down} {Right 4}
+	
+This sends left arrow a whole bunch of times, which hopefully will get you to the first column of the row. It then goes down a row and over 4 columns.
+
 # Conditional code at beginning #
 
 If you want to do a search on a web site, and there's a chance you're not on the page that lets you do a search, you can check it:
@@ -105,19 +121,3 @@ When you're ready, you can add a hotkey for your script e.g.:
     F2::
 	
 on a line by itself prior to the rest of your script will bind the script to the `F2` key.
-
-# Moving to the next cell #
-
-The easiest way to move Excel to another cell is to use arrow keys:
-
-    WinActivate,, Name Of Excel File
-	Send {Down}
-
-This works great if you want the user to be able to select the column and then the script just moves down that column.
-
-However, if you need a certain column, you might consider doing something like:
-
-    Send {Left 25}
-	Send {Down} {Right 4}
-	
-This sends left arrow a whole bunch of times, which hopefully will get you to the first column of the row. It then goes down a row and over 4 columns.
