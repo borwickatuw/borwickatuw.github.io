@@ -24,7 +24,7 @@ Installed:
     - use saved list of requested ports if possible: `port echo requested | cut -d ' ' -f 1 | uniq > requested-ports.txt`
     - `cat requested-ports.txt | xargs sudo port install`
   - [Monosnap](https://monosnap.com)
-  - Office: log into =office.com= &rarr; "Install apps"
+  - Office: log into `office.com` &rarr; "Install apps"
   - OneTab for Safari
   - [Rectangle](https://rectangleapp.com/)
   - Vagrant
@@ -39,6 +39,9 @@ Installed:
   - System preferences
     - Map caps lock to control
     - Keyboard shortcuts > Input Sources: remove ctrl+space
+    - Keyboard shortcuts > Function Keys: enable
+    - Keyboard shortcuts > Modifier Keys: map caps lock to control
+    - Spelling and prediction > disable "Correct spelling automatically" and "Capitalize words automatically"
   - Terminal
     - Profiles > Keyboard > "use Option as Meta key" for each profile
     - Create a 2x2 grid of terminal windows and save them as a "window group"
