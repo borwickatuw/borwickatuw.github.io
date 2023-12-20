@@ -40,7 +40,7 @@ I then like to be able to run the development image in two ways:
   
 The "shell" version is as easy as using the same `podman run` command but with `-ti` as additional options and then `/bin/bash` as the command.
 
-Where I mount the entire Django app as a volume, so it's easy to have the shell update the app code as needed.
+I mount the entire Django app as a volume, so it's easy to have the development shell container then update the app code as needed.
 
 ## modules to install
 
@@ -95,7 +95,7 @@ I like to run testing with a different Django settings file. I call it something
 		# add other modules as desired
 	}
 
-For the test runner, if you have any unmanaged models, it can be helpful to have a custom test runner. See  https://dev.to/vergeev/testing-against-unmanaged-models-in-django.
+For the test runner, if you have any unmanaged models, it can be helpful to have a custom test runner. See  https://dev.to/vergeev/testing-against-unmanaged-models-in-django .
 
 All the above said, I can then run the tests with something like:
 
