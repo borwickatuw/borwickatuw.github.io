@@ -13,7 +13,7 @@ This requires access to the previous computer to get a confirmation code.
 Installed:
 
   - Chrome
-  - Dropbox, needed for =emacs.d= configuration
+  - Dropbox, needed for `emacs.d` configuration
     - requires access to another device with the Dropbox account on it for authorization code
   - Emacs for Mac OS X
   - Google Drive for Desktop
@@ -64,7 +64,7 @@ Installed:
 	
 # GitHub #
 
-  - Add ~/.ssh/id_ed25519.pub to GitHub keys + authorize for SSO
+  - Add `~/.ssh/id_ed25519.pub` to GitHub keys + authorize for SSO
 
 # Secrets #
 
