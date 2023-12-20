@@ -2,6 +2,8 @@
 layout: default
 title: "Configuring a new MacBook"
 ---
+I recently got a new computer, and I thought I'd try to track all the steps needed for me to set it up! Here's what I made a note of.
+
 # Apple ID #
 
 This requires access to the previous computer to get a confirmation code.
