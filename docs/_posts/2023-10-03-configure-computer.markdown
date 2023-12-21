@@ -45,6 +45,8 @@ Installed:
   - Terminal
     - Profiles > Keyboard > "use Option as Meta key" for each profile
     - Create a 2x2 grid of terminal windows and save them as a "window group"
+  - Fonts
+    - Install [Julia Mono](https://juliamono.netlify.app)
 
 # Shell configuration #
 
