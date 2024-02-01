@@ -84,8 +84,8 @@ I wanted to create `.mbox` archives, because mbox is an open standard. To do thi
             date = email.get('Date')
             return parsedate_tz(date)
 
-		# ...
+        # ...
            sorted_mails = sorted(mbox, key=extract_date)
-		   mbox.update(enumerate(sorted_mails))
+           mbox.update(enumerate(sorted_mails))
 
   3. I zipped the files and labeled them with their potential destruction dates, e.g. "keep until 2025-01-01".
