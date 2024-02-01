@@ -61,31 +61,31 @@ I wanted to create `.mbox` archives, because mbox is an open standard. To do thi
 
   1. I had the program update the UNIX from date:
   
-        def update_date(msg):
-           for header in ("Date", "Received"):
-              value = msg.get(header)
-              if value is None:
-                 continue
-              try:
-                 # 2024-01-25 jhb - Adding the UNIX from
-                 email_date_str = value.split('\n')[-1].split(';')[-1].strip()
-                 email_date = parsedate_tz(email_date_str)
-                 out_email_date_str = time.strftime("%a %b %d %H:%M:%S %Y",
-                                                    email_date[0:9])
-                 from_str = "From MAILER-DAEMON %s" % (out_email_date_str)
-                 msg.set_unixfrom(from_str)
-              except:
-                 pass
+                def update_date(msg):
+                   for header in ("Date", "Received"):
+                      value = msg.get(header)
+                      if value is None:
+                         continue
+                      try:
+                         # 2024-01-25 jhb - Adding the UNIX from
+                         email_date_str = value.split('\n')[-1].split(';')[-1].strip()
+                         email_date = parsedate_tz(email_date_str)
+                         out_email_date_str = time.strftime("%a %b %d %H:%M:%S %Y",
+                                                            email_date[0:9])
+                         from_str = "From MAILER-DAEMON %s" % (out_email_date_str)
+                         msg.set_unixfrom(from_str)
+                      except:
+                         pass
 
   2. I sorted the mbox messages based on date (see also [this stackoverflow answer from user3850](https://stackoverflow.com/a/368067):
   
   
-        def extract_date(email):
-            date = email.get('Date')
-            return parsedate_tz(date)
-
-        # ...
-           sorted_mails = sorted(mbox, key=extract_date)
-           mbox.update(enumerate(sorted_mails))
+                def extract_date(email):
+                    date = email.get('Date')
+                    return parsedate_tz(date)
+        
+                # ...
+                   sorted_mails = sorted(mbox, key=extract_date)
+                   mbox.update(enumerate(sorted_mails))
 
   3. I zipped the files and labeled them with their potential destruction dates, e.g. "keep until 2025-01-01".
