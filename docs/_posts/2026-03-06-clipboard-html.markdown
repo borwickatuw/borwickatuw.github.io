@@ -7,7 +7,7 @@ Sometimes I need to change the HTML heading levels when I'm copying from one env
 
 The end result is
 
-    `pbpaste-html | shift-headings | pbcopy-html`
+    pbpaste-html | shift-headings | pbcopy-html
 
 MacOS's clipboard actually stores a plaintext and an HTML version, so the `*-html` scripts manipulate the HTML versions.
 
