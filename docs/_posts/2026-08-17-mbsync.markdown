@@ -1,0 +1,28 @@
+---
+layout: default
+title: "Switching to mbsync for notmuch/O365 email integration"
+---
+
+I worked with Claude Code to build two repositories for synchronizing my Office 365 email to notmuch. This is a replacement for my previous ["Checking Office365 email with Emacs"](https://borwickatuw.github.io/2022/05/17/checking-email-with-emacs.html) setup. That setup used `offlineimap` and a slightly modified `maildir-notmuch-sync` script.
+
+This new approach uses these two repositories:
+
+- [mbsync-scripts](https://github.com/borwickatuw/mbsync-scripts)
+- [maildir-notmuch-sync](https://github.com/borwickatuw/maildir-notmuch-sync)
+  
+  1. `maildir-notmuch-sync` is a script to populate `notmuch` tags based on maildir folders and vice versa. This is a Python rewrite of the old bash script.
+  2. `mbsync-scripts`
+    - `m365-token` can set up the O365 tokens
+    - `mail-sync` then runs `mbsync` alongside other wrapper commands; notably, it calls `maildir-notmuch-sync`
+    - the `emacs/` directory has lisp code that can show status in `notmuch` and plug into the `G` refresh in Emacs
+    - there's a launchd `.plist` example file that can be used to install launchd
+
+With all this setup, rather than me running a manual shell script to check mail:
+
+- email is now getting synced every 5 minutes;
+- notmuch buffers in Emacs now show how "old" the mail view is
+
+
+Stepping back from this to think about AI development, these are tools that would be extremely hard to build by hand, partly because it would take away from my work time, and partly because I really struggle with the different domains of these tools (e.g. I know elisp but at a more basic level; I have never used `mbsync` before). I have relied on other people's kindness to build things like this in the past, but with AI tools I can build and refine my requirements to build tools that arguably are easier to manage than the copy-and-paste code approaches I've used for Emacs things in the past.
+
+
